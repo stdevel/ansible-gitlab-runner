@@ -128,6 +128,9 @@
     {% if gitlab_runner.extra_registration_option is defined %}
     {{ gitlab_runner.extra_registration_option }}
     {% endif %}
+    {% if gitlab_runner.tls_ca_file is defined %}
+    --tls-ca-file {{ gitlab_runner.tls_ca_file }}
+    {% endif %}
   when: (verified_runners.stderr.find("Verifying runner... is removed") != -1) or
         ((configured_runners.stderr.find('\n' + gitlab_runner.name|default(ansible_hostname+'-'+gitlab_runner_index|string)) == -1) and
         (gitlab_runner.state|default('present') == 'present'))

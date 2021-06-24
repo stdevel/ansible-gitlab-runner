@@ -187,3 +187,6 @@ gitlab_runner_runners:
     #     allowed_images: ["ruby:*", "python:*", "php:*"]
     #   runners.docker.sysctls:
     #     net.ipv4.ip_forward: "1"
+    #
+    # optional TLS CA file (might be useful for self-signed certificates)
+    # tls_ca_file: /etc/gitlab/ssl/gitlab.crt
